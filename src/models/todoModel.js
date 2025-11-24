@@ -17,7 +17,7 @@ const Todo = new mongoose.Schema({
     },
     status: {
         type: String,
-        enum: ["done", "pending", "in progress", "completed"],
+        enum: ["pending", "in progress", "completed"],
     },
     isDeleted: {
         type: Boolean,

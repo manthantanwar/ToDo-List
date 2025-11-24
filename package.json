@@ -1,0 +1,27 @@
+{
+  "name": "projects",
+  "version": "1.0.0",
+  "description": "Projects",
+  "main": "index.js",
+  "scripts": {
+    "start": "npx nodemon src/index.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ManthanKumar1/Projects.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ManthanKumar1/Projects/issues"
+  },
+  "homepage": "https://github.com/ManthanKumar1/Projects#readme",
+  "dependencies": {
+    "express": "^4.18.2",
+    "jsonwebtoken": "^9.0.0",
+    "mongoose": "^7.0.4",
+    "nodemon": "^2.0.22"
+  }
+}

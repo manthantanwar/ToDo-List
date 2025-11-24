@@ -30,8 +30,8 @@ const createTodo = async function(req, res){
             return res.status(400).send({status: false, message: "please provide description in proper format"})
         }
 
-        if(!isValid(status) || status != "done" && status != "pending" && status != "in progress" && status != "completed"){
-            return res.status(400).send({status: false, message: "please provide status in done, pending, in progress, completed"})
+        if(!isValid(status) || status != "pending" && status != "in progress" && status != "completed"){
+            return res.status(400).send({status: false, message: "please provide status in pending, in progress, completed"})
         }
 
         if(isDeleted == true){
@@ -78,23 +78,21 @@ const updateTodo = async function(req, res){
         if(checkTodo.status == "completed"){
             return res.status(400).send({status: false, message: "task is already completed"})
         }
-        if(checkTodo.status == "done"){
-            return res.status(400).send({status: false, message: "task is already done"})
-        }
+        
         if(checkTodo.status == "pending"){
-            if(data == "completed" && data == "done"){
+            if(data == "completed"){
                 const updateList = await todoModel.findOneAndUpdate({userId: id}, {$set: data}, {new: true})
                 return res.status(200).send({status: true, message: "todo list is updated", data: updateList})
             }else{
-                return res.status(400).send({status: false, message: "either task is completed or done"})
+                return res.status(400).send({status: false, message: "either task is completed"})
             }
         }
         if(checkTodo.status == "in progress"){
-            if(data == "completed" && data == "done"){
+            if(data == "completed"){
                 const updatedList = await todoModel.findOneAndUpdate({userId: id}, {$set: data}, {new: true})
                 return res.status(200).send({status: true, message: "todo list is updated", data: updatedList})
             }else{
-                return res.status(400).send({status: false, message: "either task is completed or done"})
+                return res.status(400).send({status: false, message: "either task is completed"})
             }
         }
     } catch (error) {
